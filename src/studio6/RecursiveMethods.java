@@ -14,7 +14,14 @@ public class RecursiveMethods {
 	public static double geometricSum(int n) {
 		
 			// FIXME compute the geometric sum for the first n terms recursively
+		if(n==0) {
 			return 0;
+		}
+		else {
+			return geometricSum(n-1)+1.0/Math.pow(2,n);
+		}
+		
+
 		
 	}
 
@@ -30,8 +37,19 @@ public class RecursiveMethods {
 	 */
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius, double radiusMinimumDrawingThreshold) {
 		
-		// FIXME complete the recursive drawing
+		RecursiveMethods.circlesUponCircles(0.0, 0.0, 1.1, radiusMinimumDrawingThreshold);
+		if(radius == radiusMinimumDrawingThreshold) {
+			return;
+		}
+		else {
+			StdDraw.circle(xCenter, yCenter, radius);
+			RecursiveMethods.circlesUponCircles(xCenter, yCenter+radius, radius/3, radiusMinimumDrawingThreshold);
+			RecursiveMethods.circlesUponCircles(0.0, 0.0, 1.1, radiusMinimumDrawingThreshold);
+
+			
+		}
 	}
+
 	
 
 	/**
@@ -43,6 +61,10 @@ public class RecursiveMethods {
 	public static int[] toReversed(int[] array) {
 		
 			// FIXME create a helper method that can recursively reverse the given array
+		
+		if(array.length==1) {
+			return array[0];
+		}
 			return new int[0];
 		
 	}
